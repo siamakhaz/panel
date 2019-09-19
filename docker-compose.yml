@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+    
+  Himart.RemoveHimartPos:
+        image: himart/barcodegenerator:${TAG:-1.0.0-release}
+        container_name: Himart.bcg
+        hostname: Himart.bcg
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+      
+        networks:
+            - himart
+        restart: always
+       
+networks:
+  himart:
+    external: true  
+         
